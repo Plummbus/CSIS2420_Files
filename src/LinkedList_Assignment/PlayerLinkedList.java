@@ -1,4 +1,4 @@
-package GameAssignment;
+package LinkedList_Assignment;
 
 
 public class PlayerLinkedList {

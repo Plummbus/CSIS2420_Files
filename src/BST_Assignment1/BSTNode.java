@@ -1,4 +1,4 @@
-package BST_Practice;
+package BST_Assignment1;
 
 public class BSTNode {
 
@@ -22,6 +22,10 @@ public class BSTNode {
 
 	public BSTNode getRight() {
 		return right;
+	}
+	
+	public void setData(int data) {
+		this.data = data;
 	}
 
 	public void setLeft(BSTNode left) {

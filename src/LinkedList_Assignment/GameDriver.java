@@ -1,4 +1,4 @@
-package GameAssignment;
+package LinkedList_Assignment;
 
 import java.io.File;
 import java.io.FileNotFoundException;
