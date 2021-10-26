@@ -225,7 +225,7 @@ public class GameDriver {
 	}
 	
 	private static void populateList() throws FileNotFoundException {
-		File file = new File(".\\src\\GameAssignment\\Players.csv");
+		File file = new File(".\\src\\LinkedList_Assignment\\Players.csv");
 		Scanner sc = new Scanner(file);
 		
 		int id;

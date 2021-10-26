@@ -9,7 +9,6 @@ public class Node {
 	private int IP;
 	private String name;
 	
-	private String IPPrefix = "10.0.0.0.";
 	private Random r = new Random();
 	
 	public Node(int IP, String name) {
@@ -50,8 +49,11 @@ public class Node {
 	public void setName(String name) {
 		this.name = name;
 	}
-
-	public String getIPPrefix() {
-		return IPPrefix;
+	
+	public String getIPString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("10.0.0.");
+		sb.append(this.IP);
+		return sb.toString();
 	}
 }
