@@ -27,10 +27,10 @@ public class NetworkDemo {
 					buildTree();
 					break;
 				case 2:
-					System.out.println("2 has been called!");
+					findByIP();
 					break;
 				case 3:
-					System.out.println("3 has been called!");
+					findByName();
 					break;
 				case 4:
 					System.out.println("Number of nodes in BST: " + bst.countNodes(bst.getRoot()));
@@ -67,6 +67,87 @@ public class NetworkDemo {
 				+ "\nEnter 1, 2, 3, 4, 5, or 6");
 	}
 	
+	public static void findByIP() {
+		boolean end = false;
+		while (!end) {
+			System.out.println("Please enter an integer up to 3 digits long. Type a non-number to return to menu.");
+			try {
+				int input = sc.nextInt();
+				Node result = bst.search(bst.getRoot(), input);
+				if (result == null) {
+					System.out.println("Sorry, the IP ending in \"" + input + "\" was not found in the network. Try again");
+				} else {
+					String message = String.format("User with IP ending in \"%d\" was found!"
+							+ "\n%12s: %s"
+							+ "\n%12s: %s"
+							+ "\nReturning to menu...",
+							input, "Full Address", result.getIPString(), "F/L Name", result.getName());
+					System.out.println(message);
+					end = true;
+				}
+			} catch (InputMismatchException e) {
+				System.out.println("User inputted a non-number, returning to menu.");
+				end = true;
+				sc.next();
+			}
+		}
+	}
+	
+	public static void findByName() {
+		boolean end = false;
+		while (!end) {
+		System.out.println("Please enter the name of the user(ex. \"Jake Hernandez\" -> jhernandez). Type in an integer to return to the menu.");
+			String input = sc.next();
+			if (isInteger(input)) {
+					System.out.println("User inputted an integer, returning to menu.");
+					end = true;
+			} else {
+				Node result = bst.search(bst.getRoot(), input);
+				if (result == null) {
+					System.out.println("Sorry, the user with name \"" + input + "\" not found in the network. Try again");
+				} else {
+					String message = String.format("User with name \"%s\" was found!"
+							+ "\n%12s: %s"
+							+ "\n%12s: %s"
+							+ "\nReturning to menu...",
+							input, "Full Address", result.getIPString(), "F/L Name", result.getName());
+					System.out.println(message);
+					end = true;
+				}
+			}
+		}
+	}
+	
+	public static boolean isInteger(String str) {
+		int length = str.length();
+		
+		if (str == null || length == 0) {
+			return false;
+		}
+		
+		int i = 0;
+		if (str.charAt(i) == '-') {
+			if (str.length() == 0) {
+				return false;
+			} else {
+				i = 1;
+			}
+		}
+		
+		for (; i < length; i++) {
+			char c = str.charAt(i);
+			if (c < '0' || c > '9') {
+				return false;
+			}
+		}
+		
+		return true;
+	}
+	
+	public static boolean isIntegerRegex(String str) {
+		return str.matches("^-?\\d+$");
+	}
+	
 	public static void buildTree() throws FileNotFoundException {
 		File file = new File(".\\src\\BST_Assignment2\\users.csv");
 		Scanner scan = new Scanner(file);
@@ -82,5 +163,6 @@ public class NetworkDemo {
 			
 			bst.insert(IP, name);
 		}
+		System.out.println("Binary Search Tree is now built and populated!");
 	}
 }

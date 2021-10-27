@@ -52,6 +52,38 @@ public class BinarySearchTree {
 		}
 	}
 	
+	public Node search(Node node, int IP) {
+		if (node == null || node.getIp() == IP) {
+			return node;
+		}
+		
+		if (node.getIp() < IP) {
+			return search(node.getRightChild(),  IP);
+		}
+		
+		if (node.getIp() > IP) {
+			return search(node.getLeftChild(), IP);
+		}
+		
+		return null;
+	}
+	
+	public Node search(Node node, String name) {
+		if (node == null || node.getName().compareTo(name) == 0) {
+			return node;
+		}
+		
+		if (node.getName().compareTo(name) < 0) {
+			return search(node.getLeftChild(), name);
+		}
+		
+		if (node.getName().compareTo(name) > 0) {
+			return search(node.getRightChild(), name);
+		}
+		
+		return null;
+	}
+	
 	public int countNodes(Node root) {
 		//if node passed is empty, return 0
 		if (root == null) {
