@@ -1,0 +1,7 @@
+testTraversalTiming(1000) -> Duration: 8,472,500 nanoseconds [0.0084725000 seconds]
+testTraversalTiming(10000) -> Duration: 26,551,400 nanoseconds [0.0265514000 seconds]
+testTraversalTiming(100000) -> Duration: 235,826,300 nanoseconds [0.2358263000 seconds]
+testTraversalTiming(1000000) -> Duration: 1,368,933,100 nanoseconds [1.3689331000 seconds]
+testTraversalTiming(10000000) -> Duration: 14,194,750,000 nanoseconds [14.1947500000 seconds]
+testTraversalTiming(100000000) -> BEYOND THRESHOLD
+testTraversalTiming(1000000000) -> BEYOND THRESHOLD
