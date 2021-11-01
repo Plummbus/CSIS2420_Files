@@ -5,6 +5,15 @@ import java.io.FileNotFoundException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+
+/**
+ * Demo Class imitating a super basic network. Runs a simple console program that lets the user create a BST by reading values from a .csv file
+ * and creating nodes from those values. Can search the BST based on Node fields and return nodes found within the BST.
+ * 
+ * @author Franz Jacob Hernandez
+ * @since 10/31/2021
+ *
+ */
 public class NetworkDemo {
 
 	private static Scanner sc = new Scanner(System.in);
@@ -17,6 +26,10 @@ public class NetworkDemo {
 		
 	}
 	
+	/**
+	 * Main program controller, starts the program. Reads user input from console and calls other functions based on input.
+	 * @throws FileNotFoundException
+	 */
 	private static void run() throws FileNotFoundException {
 		do {
 			displayMenu();
@@ -55,6 +68,9 @@ public class NetworkDemo {
 		System.out.println("\n\n\nProgram terminated. Goodbye.\n\n\n");
 	}
 	
+	/**
+	 * Helper method, prints a 'menu' to the console to give the user info on how to use the program.
+	 */
 	private static void displayMenu() {
 		System.out.println("--------------------------------"
 				+ "\n1 Build Users Tree"
@@ -67,6 +83,10 @@ public class NetworkDemo {
 				+ "\nEnter 1, 2, 3, 4, 5, or 6");
 	}
 	
+	/**
+	 * Requests user to enter the last 3 digits of an IP and returns a value based on whether or not it can find a Node with 
+	 * a matching IP.
+	 */
 	public static void findByIP() {
 		boolean end = false;
 		while (!end) {
@@ -93,6 +113,10 @@ public class NetworkDemo {
 		}
 	}
 	
+	/**
+	 * Requests user to enter the name associated with a Node and returns a value based on whether or not it can find a Node with 
+	 * a matching name.
+	 */
 	public static void findByName() {
 		boolean end = false;
 		while (!end) {
@@ -118,6 +142,11 @@ public class NetworkDemo {
 		}
 	}
 	
+	/**
+	 * Helper function to evaluate if the user's input is valid.
+	 * @param str
+	 * @return boolean
+	 */
 	public static boolean isInteger(String str) {
 		int length = str.length();
 		
@@ -144,10 +173,20 @@ public class NetworkDemo {
 		return true;
 	}
 	
+	/**
+	 * Same functionality as isInteger(String str), just using regex
+	 * @param str
+	 * @return boolean
+	 * @see isInteger(String str)
+	 */
 	public static boolean isIntegerRegex(String str) {
 		return str.matches("^-?\\d+$");
 	}
 	
+	/**
+	 * Reads a .csv file and builds a BST from those values
+	 * @throws FileNotFoundException
+	 */
 	public static void buildTree() throws FileNotFoundException {
 		File file = new File(".\\src\\BST_Assignment2\\users.csv");
 		Scanner scan = new Scanner(file);
