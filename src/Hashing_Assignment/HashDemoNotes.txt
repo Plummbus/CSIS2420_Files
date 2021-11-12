@@ -1,0 +1,108 @@
+HashArray Size: 3
+Searching for: "Zuniga" -> last node of the largest index
+Duration: 287,800 nanoseconds [0.0002878000 seconds]
+
+HashArray Size: 3
+Searching for: "Barnes" -> first node of the smallest index
+Duration: 1,000 nanoseconds [0.0000010000 seconds]
+
+HashArray Size: 3
+Searching for: "Leonard" -> somewhere in the middle-range of values/index
+Duration: 222,200 nanoseconds [0.0002222000 seconds]
+
+FULL utilization of hashArray
+
+--------------------------------------------------------------------------------
+
+HashArray Size: 10
+Searching for: "Young" -> last node of the largest index
+Duration: 77,400 nanoseconds [0.0000774000 seconds]
+
+HashArray Size: 10
+Searching for: "Jones" -> first node of the smallest (tied for smallest) index
+Duration: 600 nanoseconds [0.0000006000 seconds]
+
+HashArray Size: 10
+Searching for: "Marcum"-> somewhere in the middle-range of values/index
+Duration: 71,300 nanoseconds [0.0000713000 seconds]
+
+FULL utilization of hashArray
+
+---------------------------------------------------------------------------------
+
+HashArray Size: 50
+Searching for: "Wicks" -> last node of the largest index
+Duration: 25,700 nanoseconds [0.0000257000 seconds]
+
+HashArray Size: 50
+Searching for: "Yates" -> first node of the smallest (tied for smallest) index
+Duration: 1,100 nanoseconds [0.0000011000 seconds]
+
+HashArray Size: 50
+Searching for: "Keyes"-> somewhere in the middle-range of values/index
+Duration: 24,100 nanoseconds [0.0000241000 seconds]
+
+FULL utilization of hashArray
+
+---------------------------------------------------------------------------------
+
+HashArray Size: 100
+Searching for: "Wicks" -> last node of the largest index
+Duration: 22,000 nanoseconds [0.0000220000 seconds]
+
+HashArray Size: 100
+Searching for: "Bach" -> first node of the smallest (tied for smallest) index
+Duration: 700 nanoseconds [0.0000007000 seconds]
+
+HashArray Size: 100
+Searching for: "Pantoja"-> somewhere in the middle-range of values/index
+Duration: 15,000 nanoseconds [0.0000150000 seconds]
+
+FULL utilization of hashArray
+
+-----------------------------------------------------------------------------------
+
+HashArray Size: 500
+Searching for: "Zarate" -> last node of the largest index
+Duration: 15,800 nanoseconds [0.0000158000 seconds]
+
+HashArray Size: 500
+Searching for: "Schweitzer" -> first node of the smallest (tied for smallest) index
+Duration: 1,900 nanoseconds [0.0000019000 seconds]
+
+HashArray Size: 500
+Searching for: "Sipes"-> somewhere in the middle-range of values/index
+Duration: 8,400 nanoseconds [0.0000084000 seconds]
+
+45 indices are EMPTY --> 91% utilization of hashArray
+
+-----------------------------------------------------------------------------------
+
+HashArray Size: 1000
+Searching for: "Zarate" -> last node of the largest index
+Duration: 16,600 nanoseconds [0.0000166000 seconds]
+
+HashArray Size: 1000
+Searching for: "Mcclanahan" -> first node of the smallest (tied for smallest) index (actually the last non-empty index: 998)
+Duration: 1,700 nanoseconds [0.0000017000 seconds]
+
+HashArray Size: 1000
+Searching for: "Urban"-> somewhere in the middle-range of values/index
+Duration: 6,000 nanoseconds [0.0000060000 seconds]
+
+416 indices are EMPTY --> 58.4% utilization of hashArray
+
+-----------------------------------------------------------------------------------
+
+FINAL THOUGHTS:
+
+In the reading material for this week, it said that the best-practice and most efficient thing is to keep that
+HashArray at around 70% utilization. Keeping that in mind, the sweet spot for our data set would then be
+somewhere between a size of 500 (91%) and 1000 (58%). My guess would be around the 750 mark. If our data set
+was 4.5 million entries long, I would guess that we would have to bump up our size relative to the magnitude
+increase of the data set. 4,500 --> 4.5 million is a 1000x increase, so maybe we increase the size of our
+hashArray by 1000x to 750,000. I think the more relevant factor in needing more space, though, would be the hash
+values of the data. We only really need to increase space when the linked lists get too long to traverse. Increasing
+the size of the hashArray also won't help if all the entries have similar hash values. If our data increases to
+4.5 million entries, but the variety in hash values stays the same to what it is now, I don't think increasing the
+size of the hasArray will provide and bonus performance.
